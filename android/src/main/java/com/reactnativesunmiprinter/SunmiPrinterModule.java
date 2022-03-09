@@ -24,6 +24,7 @@ import com.sunmi.peripheral.printer.SunmiPrinterService;
 import com.sunmi.peripheral.printer.TransBean;
 import com.sunmi.peripheral.printer.WoyouConsts;
 
+import java.io.IOException;
 import java.util.Map;
 
 @ReactModule(name = SunmiPrinterModule.NAME)
@@ -423,6 +424,11 @@ public class SunmiPrinterModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void printQRCode(String data, int modulesize, int errorlevel) throws RemoteException {
     printerService.printQRCode(data, modulesize, errorlevel, innerResultCallback);
+  }
+
+  public void printSvgQrCode(String svg, int width, int height) throws RemoteException, IOException {
+    Bitmap svgBitmap = SvgToBitmapTranscoder.renderToBitmap(svg, width, height);
+    printerService.printBitmap(svgBitmap, innerResultCallback);
   }
 
   /**
