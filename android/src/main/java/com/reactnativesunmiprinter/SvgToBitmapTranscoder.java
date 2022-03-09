@@ -3,6 +3,7 @@ package com.reactnativesunmiprinter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.drawable.PictureDrawable;
 import android.util.Log;
 
@@ -18,6 +19,7 @@ public class SvgToBitmapTranscoder {
       Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
       Log.d("SvgToBitmapTr Error", "SvgToBitmapTranscoder: renderToBitmap: bitmap level 1" + String.valueOf(bitmap));
       Canvas bmpCanvas = new Canvas();
+      bmpCanvas.drawColor(Color.TRANSPARENT);
       svg.renderToCanvas(bmpCanvas);
       bmpCanvas.setBitmap(bitmap);
       Log.d("SvgToBitmapTr Error", "SvgToBitmapTranscoder: renderToBitmap: bitmap level 2" + String.valueOf(bitmap));
