@@ -12,7 +12,7 @@ import java.io.IOException;
 public class SvgToBitmapTranscoder {
   static Bitmap renderToBitmap(String xmlData, int width, int height) throws IOException {
     try {
-      SVG svg = new SVG.getFromString(xmlData);
+      SVG svg = SVG.getFromString(xmlData);
       Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
       Canvas bmpCanvas = new Canvas();
       svg.renderToCanvas(bmpCanvas);
