@@ -324,6 +324,8 @@ type SunmiPrinterType = {
    * 是否存在打印机服务
    */
   hasPrinter: () => Promise<boolean>;
+
+  convertXmlToBitmap: () => void;
 };
 
 type SunmiScanType = {
