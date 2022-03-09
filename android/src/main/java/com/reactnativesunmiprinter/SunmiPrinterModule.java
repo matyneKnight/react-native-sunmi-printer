@@ -437,7 +437,9 @@ public class SunmiPrinterModule extends ReactContextBaseJavaModule {
    */
   @ReactMethod
   public void printSvgQRCode(String svg, int width, int height) throws RemoteException, IOException {
+    Log.d(TAG, "printSvgQRCode: invoque qr gen" + svg);
     Bitmap svgBitmap = SvgToBitmapTranscoder.renderToBitmap(svg, width, height);
+    Log.d(TAG, "printSvgQRCode" + String.valueOf(svgBitmap));
     printerService.printBitmap(svgBitmap, innerResultCallback);
   }
 
