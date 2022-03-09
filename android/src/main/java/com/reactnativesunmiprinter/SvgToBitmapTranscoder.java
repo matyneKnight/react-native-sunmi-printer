@@ -15,14 +15,14 @@ public class SvgToBitmapTranscoder {
   static Bitmap renderToBitmap(String xmlData, int width, int height) throws IOException {
     try {
       SVG svg = SVG.getFromString(xmlData);
-      Log.d("SvgToBitmapTr Error", "SvgToBitmapTranscoder: renderToBitmap: svg" + String.valueOf(svg));
+      Log.w("SvgToBitmapTr Error", "SvgToBitmapTranscoder: renderToBitmap: svg" + String.valueOf(svg));
       Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-      Log.d("SvgToBitmapTr Error", "SvgToBitmapTranscoder: renderToBitmap: bitmap level 1" + String.valueOf(bitmap));
-      Canvas bmpCanvas = new Canvas();
-      bmpCanvas.drawColor(Color.TRANSPARENT);
+      Log.w("SvgToBitmapTr Error", "SvgToBitmapTranscoder: renderToBitmap: bitmap level 1" + String.valueOf(bitmap));
+      Canvas bmpCanvas = new Canvas(bitmap);
+      bmpCanvas.drawColor(Color.WHITE);
       svg.renderToCanvas(bmpCanvas);
       bmpCanvas.setBitmap(bitmap);
-      Log.d("SvgToBitmapTr Error", "SvgToBitmapTranscoder: renderToBitmap: bitmap level 2" + String.valueOf(bitmap));
+      Log.w("SvgToBitmapTr Error", "SvgToBitmapTranscoder: renderToBitmap: bitmap level 2" + String.valueOf(bitmap));
       return bitmap;
 //      PictureDrawable drawable = new PictureDrawable(svg.renderToPicture());
 //      return BitmapFactory.decodeResource(context.getResources(), drawable);
