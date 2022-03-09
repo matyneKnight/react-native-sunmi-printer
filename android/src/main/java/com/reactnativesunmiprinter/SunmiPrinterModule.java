@@ -534,6 +534,6 @@ public class SunmiPrinterModule extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void convertXmlToBitmap() {
-    Log.i("Kiosk Portal Sunmi printer convertXmlToBitmap method");
+    Log.d("SunmiPrinterModule", "Kiosk Portal Sunmi printer convertXmlToBitmap method");
   }
 }
