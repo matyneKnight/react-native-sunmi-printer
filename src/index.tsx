@@ -223,6 +223,16 @@ type SunmiPrinterType = {
    */
   printQRCode: (data: string, modulesize: number, errorlevel: number) => void;
   /**
+   * 打印QR条码
+   * @description 普通打印状态下在调⽤该⽅法后会直接输出打印，每个⼆维码块为 4 个像素点（⼩于 4 扫码解析
+   * 有可能失败）。最⼤⽀持 version19（93*93）的模式。
+   *
+   * @param svg
+   * @param width
+   * @param height
+   */
+  printSvgQRCode: (svg: string, width: number, height: number) => void;
+  /**
    * 打印⼆维条码
    * @description 普通打印状态下在调⽤该⽅法后会直接输出打印；此接⼝在4.1.2版本后⽀持;
    *
