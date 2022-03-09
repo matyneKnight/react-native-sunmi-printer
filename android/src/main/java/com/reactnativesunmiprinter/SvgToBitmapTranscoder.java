@@ -14,9 +14,12 @@ public class SvgToBitmapTranscoder {
     try {
       SVG svg = new SVG.getFromString(xmlData);
       Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-      Canvas bmpCanvas = new Canvas(bitmap);
-      PictureDrawable drawable = new PictureDrawable(svg.renderToPicture());
-      return BitmapFactory.decodeResource(context.getResources(), drawable);
+      Canvas bmpCanvas = new Canvas();
+      svg.renderToCanvas(bmpCanvas);
+      bmpCanvas.setBitmap(bitmap);
+      return bitmap;
+//      PictureDrawable drawable = new PictureDrawable(svg.renderToPicture());
+//      return BitmapFactory.decodeResource(context.getResources(), drawable);
     } catch (SVGParseException ex) {
       throw new IOException("Cannot load SVG from stream", ex);
     }
