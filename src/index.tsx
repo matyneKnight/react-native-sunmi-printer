@@ -325,7 +325,7 @@ type SunmiPrinterType = {
    */
   hasPrinter: () => Promise<boolean>;
 
-  convertXmlToBitmap: () => void;
+  printImageBase64: (base64: string) => void;
 };
 
 type SunmiScanType = {

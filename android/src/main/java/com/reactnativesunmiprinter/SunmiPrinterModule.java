@@ -3,6 +3,7 @@ package com.reactnativesunmiprinter;
 import android.content.ComponentName;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.RemoteException;
 import android.util.Base64;
 import android.util.Log;
@@ -533,7 +534,10 @@ public class SunmiPrinterModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void convertXmlToBitmap() {
-    Log.d("SunmiPrinterModule", "Kiosk Portal Sunmi printer convertXmlToBitmap method");
+  public void printImageBase64(String base64) throws RemoteException  {
+    final byte[] decodedString = Base64.decode(base64.getBytes(), Base64.DEFAULT);
+    Bitmap decodedBitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+    printerService.printBitmap(decodedBitmap, innerResultCallback);
+    Log.d("SunmiPrinterModule", "Kiosk Portal Sunmi printer convertXmlToBitmap method"+ decodedBitmap);
   }
 }
